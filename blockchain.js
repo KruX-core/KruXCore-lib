@@ -97,7 +97,7 @@ class Blockchain {
     
     createGenesisBlock() {
         let txn = new Transaction(Date.now(), "BlockMinting", "Genesis", 0);
-        let genesisBlock = new Block("27/04/2019", [ txn ], "0");
+        let genesisBlock = new Block("1556735351", [ txn ], "0");
         this.chain.push(genesisBlock);
     }
     
