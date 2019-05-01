@@ -145,9 +145,15 @@ class Blockchain {
         let sender = txn.sender;
         let balance = this.getBalanceForAddress(sender);
 
-        if (balance >= txn.amount && txn.isValid()) {
-            return true;
+        if (balance >= txn.amount) {
+            if (txn.isValid()) {
+		return true;
+	    } else {
+		console.log("Transaction is not valid! :(");
+		return false;
+	    }
         } else {
+	    console.log("Not enough money :(");
             return false;
         }
     }
