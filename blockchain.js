@@ -161,10 +161,13 @@ class Blockchain {
     addTransaction(txn) {
         if (!txn.sender || !txn.recipient)
             console.log('Transaction must include the sender\'s and the recipient\'s addresses!');
+	    return;
 
         if (!this.validateTx(txn))
             console.log('Cannot add invalid transaction! :(');
+	    return;
 
+	console.log("Transaction successfully added! :)");
         this.pendingTxns.push(txn);
     }
     
