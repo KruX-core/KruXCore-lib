@@ -1,5 +1,5 @@
 {
-  "name": "blockchain_js",
+  "name": "NaiveCoin",
   "version": "0.1.0",
   "description": "This is a blockchain built on NodeJS and crypto-js",
   "main": "app.js",
