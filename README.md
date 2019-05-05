@@ -3,6 +3,6 @@ This "cryptocurrency" programmed entirely in JavaScript provides a Blockchain wi
 
 ## TODO
 
-- [ ] Implement a basic blockchain
+- [x] Implement a basic blockchain
 - [ ] Implement P2P
 - [ ] Implement RPC
