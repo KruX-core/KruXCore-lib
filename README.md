@@ -1,14 +1,8 @@
 # NodeCoin-lib
 
-This "cryptocurrency" programmed entirely in JavaScript provides a Blockchain with a P2P and RPC connection to other nodes.
+This library programmed entirely in JavaScript provides a Blockchain.
 
-## TODO
-
-- [x] Implement a basic blockchain
-- [ ] Implement P2P
-- [ ] Implement RPC
-
-This is the library for NodeCoin, a coin built on top of NodeJS and CryptoJS.
+This is the library for NodeCoin, a KruX Core built on top of NodeJS and CryptoJS.
 
 ## API
 
