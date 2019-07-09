@@ -4,8 +4,7 @@
   "description": "This is a blockchain built on NodeJS and crypto-js",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "test": "node app.js"
   },
   "keywords": [
     "blockchain",
