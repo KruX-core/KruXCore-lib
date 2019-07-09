@@ -28,6 +28,11 @@ Background Color: #453232
 
 Title Color:      #45D339
 
+### Warning
+
+Title Color:      #49FA49
+
 ### Error
 
 Title Color:      #F53B3B
+
