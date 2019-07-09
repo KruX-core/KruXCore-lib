@@ -20,47 +20,6 @@ var MessageType = {
     RESPONSE_BLOCKCHAIN: 2
 };
 
-
-/*
-var initRPC = () => {
-    var app = express();
-    app.use(bodyParser.json());
-
-    app.get('/api/blocks', (req, res) => {
-        res.send(JSON.stringify(Coin.))
-    });
-
-    app.post('/api/addTransaction', (req, res) => {
-        var newBlock = generateNextBlock(req.body.data);
-        addBlock(newBlock);
-        broadcast(responseLatestMsg());
-        console.log('block added: ' + JSON.stringify(newBlock));
-        res.send();
-    });
-    
-    app.get('/api/peers', (req, res) => {
-        res.send(sockets.map(s => s._socket.remoteAddress + ':' + s._socket.remotePort));
-    });
-    
-    app.post('/api/addPeer', (req, res) => {
-        connectToPeers([req.body.peer]);
-        res.send();
-    });
-    
-    app.listen(http_port, () => console.log('Listening http on port: ' + http_port));
-};
-
-
-var initP2PServer = () => {
-    var server = new WebSocket.Server({port: P2P_PORT});
-
-    server.on('connection', ws => initConnection(ws));
-
-    console.log('Listening P2P port is ' + P2P_PORT);
-};
-*/
-
-
 function mineBlock(Coin, address) {
     console.log("\nMining block at height " + (Coin.getBlockHeight() + 1) + "...");
     Coin.mineCurrentBlock(address);
