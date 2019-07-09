@@ -14,13 +14,10 @@
   "author": "TheDevMinerTV",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
     "cli-progress": "^2.1.1",
     "crypto-js": "^3.1.9-1",
     "elliptic": "^6.4.1",
-    "express": "^4.16.4",
-    "ws": "^7.0.0",
     "xa": "^2.1.0"
   }
 }
