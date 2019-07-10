@@ -33,7 +33,7 @@ Coin.addTransaction(tx1);
 // Get the balance again
 console.log(`\nBalance for ${walletAddr}: ${Coin.getBalanceForAddress(walletAddr)}\n`);
 
-while (Coin.getBlockHeight() <= 5000) {
+while (Coin.getBlockHeight() < 10000) {
     mineBlock(Coin, walletAddr);
 }
 
