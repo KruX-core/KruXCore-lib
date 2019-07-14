@@ -6,12 +6,12 @@ const EC = require('elliptic').ec;
 const ec = new EC('secp256k1');
 
 // Transaction settings
-const numOfAdresses = 100;
-const numOfCoinsSentPerTx = 1;
+const numOfAdresses = 10;
+const numOfCoinsSentPerTx = 4;
 
 // Blockchain settings
 const difficulty = 1;
-const numOfBlocksToMine = 1000;
+const numOfBlocksToMine = 100;
 
 let addresses = [];
 
