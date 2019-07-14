@@ -1,7 +1,7 @@
 {
   "name": "kruxcorelib",
   "version": "0.1.0",
-  "description": "This is a blockchain built on NodeJS and crypto-js",
+  "description": "This is a blockchain library built on NodeJS and crypto-js",
   "main": "index.js",
   "scripts": {
     "test": "node app.js"
