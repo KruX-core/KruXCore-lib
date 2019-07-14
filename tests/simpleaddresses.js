@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
-const { Blockchain } = require('./Blockchain');
-const { Transaction } = require('./Transaction');
+const { Blockchain } = require('../Blockchain');
+const { Transaction } = require('../Transaction');
 const EC = require('elliptic').ec;
 const ec = new EC('secp256k1');
 
