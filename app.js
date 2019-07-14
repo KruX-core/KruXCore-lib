@@ -11,17 +11,13 @@ const walletAddr1 = key1.getPublic('hex');
 const walletAddr2 = key2.getPublic('hex');
 const walletAddr3 = key3.getPublic('hex');
 
-function mineBlock(Coin, address) {
-    Coin.mineCurrentBlock(address);
-}
-
 const verbose = true;
 const difficulty = 3;
 
 // Instanciate a new Blockchain
 let Coin = new Blockchain({ verbose: verbose, difficulty: difficulty });
 
-// Add our wallet as a registered address
+// Add our wallets as a registered address
 Coin.addWalletAddress(walletAddr1);
 Coin.addWalletAddress(walletAddr2);
 Coin.addWalletAddress(walletAddr3);
@@ -32,7 +28,6 @@ const startTime = new Date();
 let tx1 = new Transaction(Date.now(), walletAddr1, walletAddr2, 1);
 tx1.signTx(key1);
 console.log(`Transaction successfully signed!`);
-
 console.log(`Block reward: ${Coin.blockReward}`)
 
 let memoryUsageMiningStarted = process.memoryUsage()
@@ -44,13 +39,11 @@ mineBlock(Coin, walletAddr1);
 // Add the transaction to the pending transactions
 Coin.addTransaction(tx1);
 
-while (Coin.getBlockHeight() < 250000) { // mine 250k blocks
-    mineBlock(Coin, walletAddr1);
+while (Coin.getBlockHeight() < 2500) { // mine 2.5k blocks
+    Coin.mineCurrentBlock(walletAddr1);
 }
 
 let memoryUsageMiningFinished = process.memoryUsage()
-
-console.log(`\nBlockchain is at height ${Coin.getBlockHeight()}!`);
 
 const validateStartTime = new Date();
 let memoryUsageValidationStarted = process.memoryUsage()
