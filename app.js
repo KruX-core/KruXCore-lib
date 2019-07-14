@@ -33,8 +33,8 @@ console.log(`Block reward: ${Coin.blockReward}`)
 let memoryUsageMiningStarted = process.memoryUsage()
 
 // Mine the 2nd and 3rd block
-mineBlock(Coin, walletAddr1);
-mineBlock(Coin, walletAddr1);
+Coin.mineCurrentBlock(walletAddr1);
+Coin.mineCurrentBlock(walletAddr1);
 
 // Add the transaction to the pending transactions
 Coin.addTransaction(tx1);
