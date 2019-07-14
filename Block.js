@@ -1,5 +1,5 @@
-const SHA512 = require('crypto-js/sha512'),
-      xa = require('xa');
+const SHA512 = require('crypto-js/sha512');
+const xa = require('xa');
 
 String.prototype.trunc = function(n) {
     return (this.length > n) ? this.substr(0, n-1) + '...' : this;

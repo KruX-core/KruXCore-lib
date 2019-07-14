@@ -4,6 +4,7 @@
  * Copyright (c) 2017 Bryan Braun; Licensed MIT
  */
 /* eslint-env amd, node */
+/* eslint-disable */
 
 // https://github.com/umdjs/umd/blob/master/templates/returnExports.js
 (function(root, factory) {

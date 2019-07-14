@@ -1,4 +1,5 @@
 /*! Split.js - v1.5.11 */
+/* eslint-disable */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :

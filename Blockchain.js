@@ -1,18 +1,17 @@
-const { Transaction } = require('./Transaction'),
-      { Block } = require('./Block'),
-      progressbars = require('cli-progress'),
-      xa = require('xa');
+const {Transaction} = require('./Transaction');
+const {Block} = require('./Block');
+const progressbars = require('cli-progress');
+const xa = require('xa');
 
-String.prototype.trunc = function(n) {
-    return (this.length > n) ? this.substr(0, n-1) + '...' : this;
+String.prototype.trunc = function (n) {
+    return(this.length > n) ? this.substr(0, n - 1) + '...' : this;
 };
 
 /**
  * Declares the blockchain class which stores the blocks and validates them and the transactions contained inside the block.
  * This class contains the blockchain itself, the pending transactions and a whole lot more.
  */
-class Blockchain {
-    /**
+class Blockchain { /**
      * Constructor of the Blockchain class
      * Use the opts argument to set the difficulty and to make it verbose af
      * @example
@@ -36,8 +35,14 @@ class Blockchain {
      */
     createGenesisBlock() {
         let txn = new Transaction(Date.now(), 'BlockMinting', 'Genesis', 0);
-        let genesisBlock = new Block('1556735351', [ txn ], '0', this.options.verbose);
-        if (this.options.verbose) xa.custom('Blockchain', `Created genesis block`, { titleColor: '#45D339', backgroundColor: '#453232' });
+        let genesisBlock = new Block('1556735351', [txn], '0', this.options.verbose);
+        if (this.options.verbose) {
+            xa.custom('Blockchain', 'Created genesis block', {
+                titleColor: '#45D339',
+                backgroundColor: '#453232'
+            });
+        }
+
         this.chain.push(genesisBlock);
     }
 
@@ -52,18 +57,51 @@ class Blockchain {
 
         for (const txn of this.pendingTxns) {
             switch (txn.sender) {
-                case 'BlockMinting':
-                    if (this.options.verbose) xa.custom('Blockchain', `Transaction validated: ${txn.recipient.trunc(32)} recieved ${txn.amount} coins for mining block ${this.getBlockHeight()}`, { titleColor: '#45D339', backgroundColor: '#453232' });
-                    validatedTxns.push(txn);
-                    break;
-                default:
-                    if (this.validateTx(txn)) {
-                        if (this.options.verbose) xa.custom('Blockchain', `Transaction validated: ${txn.sender.trunc(32)} sent ${txn.amount} coins to ${txn.recipient.trunc(32)}`, { titleColor: '#45D339', backgroundColor: '#453232' });
-                        validatedTxns.push(txn);
-                    } else {
-                        xa.custom('Blockchain', `Invalid transaction found: ${txn.sender.trunc(32)} tried to send ${txn.amount} coins to ${txn.recipient.trunc(32)}`, { titleColor: '#F53B3B', backgroundColor: '#453232' });
+            case 'BlockMinting':
+                if (this.options.verbose) {
+                    xa.custom('Blockchain', `Transaction validated: ${
+                        txn.recipient.trunc(32)
+                    } recieved ${
+                        txn.amount
+                    } coins for mining block ${
+                        this.getBlockHeight()
+                    }`, {
+                        titleColor: '#45D339',
+                        backgroundColor: '#453232'
+                    });
+                }
+
+                validatedTxns.push(txn);
+                break;
+            default:
+                if (this.validateTx(txn)) {
+                    if (this.options.verbose) {
+                        xa.custom('Blockchain', `Transaction validated: ${
+                            txn.sender.trunc(32)
+                        } sent ${
+                            txn.amount
+                        } coins to ${
+                            txn.recipient.trunc(32)
+                        }`, {
+                            titleColor: '#45D339',
+                            backgroundColor: '#453232'
+                        });
                     }
-                    break;
+
+                    validatedTxns.push(txn);
+                } else {
+                    xa.custom('Blockchain', `Invalid transaction found: ${
+                        txn.sender.trunc(32)
+                    } tried to send ${
+                        txn.amount
+                    } coins to ${
+                        txn.recipient.trunc(32)
+                    }`, {
+                        titleColor: '#F53B3B',
+                        backgroundColor: '#453232'
+                    });
+                }
+                break;
             }
         }
 
@@ -71,9 +109,7 @@ class Blockchain {
         block.mineBlock(this.options.difficulty);
         this.chain.push(block);
 
-        this.pendingTxns = [
-            new Transaction(Date.now(), 'BlockMinting', minerAddress, this.options.blockReward)
-        ];
+        this.pendingTxns = [new Transaction(Date.now(), 'BlockMinting', minerAddress, this.options.blockReward)];
     }
 
     /**
@@ -86,13 +122,19 @@ class Blockchain {
 
         if (balance >= txn.amount) {
             if (txn.isValid()) {
-		        return true;
-	        } else {
-		        xa.custom('Blockchain', 'Transaction is not valid', { titleColor: '#E42626', backgroundColor: '#322222' });
-		        return false;
+                return true;
+            } else {
+                xa.custom('Blockchain', 'Transaction is not valid', {
+                    titleColor: '#E42626',
+                    backgroundColor: '#322222'
+                });
+                return false;
             }
         } else {
-            xa.custom('Blockchain', 'Not enough money to confirm transaction', { titleColor: '#E42626', backgroundColor: '#322222' });
+            xa.custom('Blockchain', 'Not enough money to confirm transaction', {
+                titleColor: '#E42626',
+                backgroundColor: '#322222'
+            });
             return false;
         }
     }
@@ -103,16 +145,28 @@ class Blockchain {
      */
     addTransaction(txn) {
         if (!txn.sender || !txn.recipient) {
-            xa.custom('Blockchain', 'Transaction must include the sender\'s and the recipient\'s addresses', { titleColor: '#E42626', backgroundColor: '#322222' });
+            xa.custom('Blockchain', 'Transaction must include the sender\'s and the recipient\'s addresses', {
+                titleColor: '#E42626',
+                backgroundColor: '#322222'
+            });
             return;
-	    }
+        }
 
         if (!this.validateTx(txn)) {
-            xa.custom('Blockchain', 'Cannot add invalid transaction', { titleColor: '#E42626', backgroundColor: '#322222' });
-	        return;
-	    }
+            xa.custom('Blockchain', 'Cannot add invalid transaction', {
+                titleColor: '#E42626',
+                backgroundColor: '#322222'
+            });
+            return;
+        }
 
-        if (this.options.verbose) xa.custom('Blockchain', 'Transaction added', { titleColor: '#69E45E', backgroundColor: '#322222' });
+        if (this.options.verbose) {
+            xa.custom('Blockchain', 'Transaction added', {
+                titleColor: '#69E45E',
+                backgroundColor: '#322222'
+            });
+        }
+
         this.pendingTxns.push(txn);
     }
 
@@ -123,7 +177,14 @@ class Blockchain {
     addWalletAddress(address) {
         this.registeredAddresses.push(address);
         this.options.blockReward = this.registeredAddresses.length;
-        if (this.options.verbose) xa.custom('Blockchain', `${address.trunc(48)} successfully registered!`, { titleColor: '#69E45E', backgroundColor: '#322222' });
+        if (this.options.verbose) {
+            xa.custom('Blockchain', `${
+                address.trunc(48)
+            } successfully registered!`, {
+                titleColor: '#69E45E',
+                backgroundColor: '#322222'
+            });
+        }
     }
 
     /**
@@ -133,7 +194,7 @@ class Blockchain {
      * @returns {Block} This is the latest block.
      */
     getLatestBlock() {
-        return this.chain[ this.chain.length - 1 ];
+        return this.chain[this.chain.length - 1];
     }
 
     /**
@@ -144,8 +205,8 @@ class Blockchain {
     getBalanceForAddress(address) {
         let balance = 0;
 
-        for ( const block of this.chain) {
-            for ( const txn of block.txns) {
+        for (const block of this.chain) {
+            for (const txn of block.txns) {
                 if (address === txn.sender) {
                     balance -= txn.amount;
                 }
@@ -173,7 +234,7 @@ class Blockchain {
      * @returns {Block}
      */
     getBlockAtHeight(height) {
-        return this.chain[ height ];
+        return this.chain[height];
     }
 
     /**
@@ -227,3 +288,4 @@ class Blockchain {
 }
 
 module.exports.Blockchain = Blockchain;
+

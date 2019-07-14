@@ -1,4 +1,5 @@
 /* global anchors */
+/* eslint-disable */
 
 // add anchor links to headers
 anchors.options.placement = 'left';

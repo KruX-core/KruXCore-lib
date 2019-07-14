@@ -1,7 +1,7 @@
-const SHA512 = require('crypto-js/sha512'),
-      EC = require('elliptic').ec,
-      ec = new EC('secp256k1'),
-      xa = require('xa');
+const SHA512 = require('crypto-js/sha512');
+const EC = require('elliptic').ec;
+const ec = new EC('secp256k1');
+const xa = require('xa');
 
 /**
  * Declares the transaction class.
@@ -15,7 +15,7 @@ class Transaction {
      * @param {Number} amount
      */
     constructor(timestamp, sender, recipient, amount) {
-        this.timestamp = timestamp
+        this.timestamp = timestamp;
         this.sender = sender;
         this.recipient = recipient;
         this.amount = amount;
@@ -49,7 +49,7 @@ class Transaction {
      * @returns {boolean}
      */
     isValid() {
-        if (this.sender === "BlockMinting") {
+        if (this.sender === 'BlockMinting') {
             return true;
         }
 
