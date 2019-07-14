@@ -72,3 +72,29 @@ Memory usage before mining: 42.35546875 MB
 Memory usage after mining: 402.79296875 MB
 Memory usage before validating: 402.79296875 MB
 Memory usage after validating: 424.11328125 MB
+
+# Multiaddress test
+
+20 blocks, 10k addresses, 1 transaction per block
+-------------------------------------------------
+
+Difficulty 5
+Mining took 4097427 milliseconds
+Mining time per block is 204871.35 milliseconds
+Validating took 617 milliseconds
+Validation time per block is 30.85 milliseconds
+Memory usage before mining: 108.75390625 MB
+Memory usage before validating: 100.26171875 MB
+Memory usage after validating: 102.26953125 MB
+
+1000 blocks, 100 addresses, 100 transactions per block
+------------------------------------------------------
+
+Difficulty 1
+Mining took 2896085 milliseconds
+Mining time per block is 2896.085 milliseconds
+Validating took 23872 milliseconds
+Validation time per block is 23.872 milliseconds
+Memory usage before mining: 49.671875 MB
+Memory usage before validating: 124.37109375 MB
+Memory usage after validating: 129.00390625 MB
