@@ -1,1474 +1,1421 @@
 <!doctype html>
 <html>
-
 <head>
-  <meta charset='utf-8' />
-  <title>NaiveCoin 0.1.0 | Documentation</title>
+  <meta charset='utf-8'>
+  <title>kruxcorelib 0.1.0 | Documentation</title>
   <meta name='description' content='This is a blockchain built on NodeJS and crypto-js'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
-  <link href='assets/bass.css' rel='stylesheet' />
-  <link href='assets/style.css' rel='stylesheet' />
-  <link href='assets/github.css' rel='stylesheet' />
-  <link href='assets/split.css' rel='stylesheet' />
+  <link href='assets/bass.css' rel='stylesheet'>
+  <link href='assets/style.css' rel='stylesheet'>
+  <link href='assets/github.css' rel='stylesheet'>
+  <link href='assets/split.css' rel='stylesheet'>
 </head>
-
 <body class='documentation m0'>
-  <div class='flex'>
-    <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
-      <div class='py1 px2'>
-        <h3 class='mb0 no-anchor'>NaiveCoin</h3>
-        <div class='mb1'><code>0.1.0</code></div>
-        <input placeholder='Filter' id='filter-input' class='col12 block input' type='text' />
-        <div id='toc'>
-          <ul class='list-reset h5 py1-ul'>
-
-
-            <li><a href='#block' class=" toggle-sibling">
-                Block
-                <span class='icon'>▸</span>
-              </a>
-
-              <div class='toggle-target display-none'>
-
-
-                <ul class='list-reset py1-ul pl1'>
-                  <li class='h5'><span>Instance members</span></li>
-
-                  <li><a href='#blockcalchash' class='regular pre-open'>
-                      #calcHash
-                    </a></li>
-
-                  <li><a href='#blockmineblock' class='regular pre-open'>
-                      #mineBlock
-                    </a></li>
-
-                </ul>
-
-
-
-              </div>
-
-            </li>
-
-
-            <li><a href='#blockchain' class=" toggle-sibling">
-                Blockchain
-                <span class='icon'>▸</span>
-              </a>
-
-              <div class='toggle-target display-none'>
-
-
-                <ul class='list-reset py1-ul pl1'>
-                  <li class='h5'><span>Instance members</span></li>
-
-                  <li><a href='#blockchainairdropcoins' class='regular pre-open'>
-                      #airdropCoins
-                    </a></li>
-
-                  <li><a href='#blockchaincreategenesisblock' class='regular pre-open'>
-                      #createGenesisBlock
-                    </a></li>
-
-                  <li><a href='#blockchaingetlatestblock' class='regular pre-open'>
-                      #getLatestBlock
-                    </a></li>
-
-                  <li><a href='#blockchainminecurrentblock' class='regular pre-open'>
-                      #mineCurrentBlock
-                    </a></li>
-
-                  <li><a href='#blockchainvalidatetx' class='regular pre-open'>
-                      #validateTx
-                    </a></li>
-
-                  <li><a href='#blockchainaddtransaction' class='regular pre-open'>
-                      #addTransaction
-                    </a></li>
-
-                  <li><a href='#blockchainaddwalletaddress' class='regular pre-open'>
-                      #addWalletAddress
-                    </a></li>
-
-                  <li><a href='#blockchaingetbalanceforaddress' class='regular pre-open'>
-                      #getBalanceForAddress
-                    </a></li>
-
-                  <li><a href='#blockchaingetblockheight' class='regular pre-open'>
-                      #getBlockHeight
-                    </a></li>
-
-                  <li><a href='#blockchaingetblockatheight' class='regular pre-open'>
-                      #getBlockAtHeight
-                    </a></li>
-
-                  <li><a href='#blockchaingetpendingtxns' class='regular pre-open'>
-                      #getPendingTxns
-                    </a></li>
-
-                  <li><a href='#blockchainischainvalid' class='regular pre-open'>
-                      #isChainValid
-                    </a></li>
-
-                </ul>
-
-
-
-              </div>
-
-            </li>
-
-
-            <li><a href='#transaction' class=" toggle-sibling">
-                Transaction
-                <span class='icon'>▸</span>
-              </a>
-
-              <div class='toggle-target display-none'>
-
-
-                <ul class='list-reset py1-ul pl1'>
-                  <li class='h5'><span>Instance members</span></li>
-
-                  <li><a href='#transactioncalchash' class='regular pre-open'>
-                      #calcHash
-                    </a></li>
-
-                  <li><a href='#transactionsigntx' class='regular pre-open'>
-                      #signTx
-                    </a></li>
-
-                  <li><a href='#transactionisvalid' class='regular pre-open'>
-                      #isValid
-                    </a></li>
-
-                </ul>
-
-
-
-              </div>
-
-            </li>
-
-          </ul>
-        </div>
-        <div class='mt1 h6 quiet'>
-          <a href='https://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+    <div class='flex'>
+      <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'>kruxcorelib</h3>
+          <div class='mb1'><code>0.1.0</code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#block'
+                  class=" toggle-sibling">
+                  Block
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#blockcalchash'
+                        class='regular pre-open'>
+                        #calcHash
+                      </a></li>
+                      
+                      <li><a
+                        href='#blockmineblock'
+                        class='regular pre-open'>
+                        #mineBlock
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#blockchain'
+                  class=" toggle-sibling">
+                  Blockchain
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#blockchaincreategenesisblock'
+                        class='regular pre-open'>
+                        #createGenesisBlock
+                      </a></li>
+                      
+                      <li><a
+                        href='#blockchainminecurrentblock'
+                        class='regular pre-open'>
+                        #mineCurrentBlock
+                      </a></li>
+                      
+                      <li><a
+                        href='#blockchainvalidatetx'
+                        class='regular pre-open'>
+                        #validateTx
+                      </a></li>
+                      
+                      <li><a
+                        href='#blockchainaddtransaction'
+                        class='regular pre-open'>
+                        #addTransaction
+                      </a></li>
+                      
+                      <li><a
+                        href='#blockchainaddwalletaddress'
+                        class='regular pre-open'>
+                        #addWalletAddress
+                      </a></li>
+                      
+                      <li><a
+                        href='#blockchaingetlatestblock'
+                        class='regular pre-open'>
+                        #getLatestBlock
+                      </a></li>
+                      
+                      <li><a
+                        href='#blockchaingetbalanceforaddress'
+                        class='regular pre-open'>
+                        #getBalanceForAddress
+                      </a></li>
+                      
+                      <li><a
+                        href='#blockchaingetblockheight'
+                        class='regular pre-open'>
+                        #getBlockHeight
+                      </a></li>
+                      
+                      <li><a
+                        href='#blockchaingetblockatheight'
+                        class='regular pre-open'>
+                        #getBlockAtHeight
+                      </a></li>
+                      
+                      <li><a
+                        href='#blockchaingetpendingtxns'
+                        class='regular pre-open'>
+                        #getPendingTxns
+                      </a></li>
+                      
+                      <li><a
+                        href='#blockchainischainvalid'
+                        class='regular pre-open'>
+                        #isChainValid
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#transaction'
+                  class=" toggle-sibling">
+                  Transaction
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#transactioncalchash'
+                        class='regular pre-open'>
+                        #calcHash
+                      </a></li>
+                      
+                      <li><a
+                        href='#transactionsigntx'
+                        class='regular pre-open'>
+                        #signTx
+                      </a></li>
+                      
+                      <li><a
+                        href='#transactionisvalid'
+                        class='regular pre-open'>
+                        #isValid
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='https://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div id='split-right' class='relative overflow-auto height-viewport-100'>
-
-
-      <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-        <div class='clearfix'>
-
-          <h3 class='fl m0' id='block'>
-            Block
-          </h3>
-
-
-        </div>
-
-
-        <p>Declares a new class for the blocks that are inside the blockchain.
-          This class contains the timestamp, the transactions and the hash of the previous block.</p>
-
-        <div class='pre p1 fill-light mt0'>new Block(timestamp: <a
-            href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>, txns: <a
-            href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>,
-          previousHash: Hash)</div>
-
-
-
-
-
-
-
-
-
-
-
-        <div class='py1 quiet mt1 prose-big'>Parameters</div>
-        <div class='prose'>
-
-          <div class='space-bottom0'>
-            <div>
-              <span class='code bold'>timestamp</span> <code class='quiet'>(<a
-                  href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>)</code>
-
-            </div>
-
-          </div>
-
-          <div class='space-bottom0'>
-            <div>
-              <span class='code bold'>txns</span> <code class='quiet'>(<a
-                  href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
-
-            </div>
-
-          </div>
-
-          <div class='space-bottom0'>
-            <div>
-              <span class='code bold'>previousHash</span> <code class='quiet'>(Hash)</code>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class='py1 quiet mt1 prose-big'>Instance Members</div>
-        <div class="clearfix">
-
-          <div class='border-bottom' id='blockcalchash'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>calcHash()</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function hashes the block.</p>
-
-                <div class='pre p1 fill-light mt0'>calcHash(): Hash</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Returns</div>
-                <code>Hash</code>:
-                This is the SHA512 hash of the block.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-          <div class='border-bottom' id='blockmineblock'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>mineBlock(difficulty)</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function hashes the block until the hash begins with n zeroes.</p>
-
-                <div class='pre p1 fill-light mt0'>mineBlock(difficulty: <a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Parameters</div>
-                <div class='prose'>
-
-                  <div class='space-bottom0'>
-                    <div>
-                      <span class='code bold'>difficulty</span> <code class='quiet'>(<a
-                          href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-                      This is the difficulty this block is mined at
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Example</div>
-
-
-                <pre
-                  class='p1 overflow-auto round fill-light'>block.mineBlock(<span class="hljs-number">4</span>);</pre>
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-        </div>
-
-
-
-
-
-
-      </section>
-
-
-
-
-      <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-        <div class='clearfix'>
-
-          <h3 class='fl m0' id='blockchain'>
-            Blockchain
-          </h3>
-
-
-        </div>
-
-
-        <p>Declares the blockchain class which stores the blocks and validates them and the transactions contained
-          inside the block.
-          This class contains the blockchain itself, the pending transactions and a whole lot more.</p>
-
-        <div class='pre p1 fill-light mt0'>new Blockchain()</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class='py1 quiet mt1 prose-big'>Instance Members</div>
-        <div class="clearfix">
-
-          <div class='border-bottom' id='blockchainairdropcoins'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>airdropCoins()</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function gives every registered address a cut of the block reward.</p>
-
-                <div class='pre p1 fill-light mt0'>airdropCoins()</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-          <div class='border-bottom' id='blockchaincreategenesisblock'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>createGenesisBlock()</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function creates the genesis block and pushes it onto the blockchain.</p>
-
-                <div class='pre p1 fill-light mt0'>createGenesisBlock()</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-          <div class='border-bottom' id='blockchaingetlatestblock'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>getLatestBlock()</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function returns the last block on the blockchain.</p>
-
-                <div class='pre p1 fill-light mt0'>getLatestBlock(): <a href="#block">Block</a></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Returns</div>
-                <code><a href="#block">Block</a></code>:
-                This is the latest block.
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Example</div>
-
-
-                <pre class='p1 overflow-auto round fill-light'>blockchain.getLastestBlock();</pre>
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-          <div class='border-bottom' id='blockchainminecurrentblock'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>mineCurrentBlock(minerAddress, minedByAirdrop)</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function creates a airdrop every 25 block, validates all pending Transactions, mines the block.
-                </p>
-
-                <div class='pre p1 fill-light mt0'>mineCurrentBlock(minerAddress: <a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>,
-                  minedByAirdrop: <a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Parameters</div>
-                <div class='prose'>
-
-                  <div class='space-bottom0'>
-                    <div>
-                      <span class='code bold'>minerAddress</span> <code class='quiet'>(<a
-                          href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-                      This is the wallet address where the block reward is payed to.
-
-                    </div>
-
-                  </div>
-
-                  <div class='space-bottom0'>
-                    <div>
-                      <span class='code bold'>minedByAirdrop</span> <code class='quiet'>(<a
-                          href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
-                        = <code>false</code>)</code>
-                      Indicates if the block is being mined by a airdrop.
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Example</div>
-
-
-                <pre
-                  class='p1 overflow-auto round fill-light'>blockchain.mineCurrentBlock(<span class="hljs-string">'your public address'</span>);</pre>
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-          <div class='border-bottom' id='blockchainvalidatetx'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>validateTx(txn)</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function will validate and check the transaction to prevent overspending and stealing another
-                  users coins.</p>
-
-                <div class='pre p1 fill-light mt0'>validateTx(txn: <a href="#transaction">Transaction</a>)</div>
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Parameters</div>
-                <div class='prose'>
-
-                  <div class='space-bottom0'>
-                    <div>
-                      <span class='code bold'>txn</span> <code class='quiet'>(<a
-                          href="#transaction">Transaction</a>)</code>
-                      The transaction that will be checked
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-          <div class='border-bottom' id='blockchainaddtransaction'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>addTransaction(txn)</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function checks the transaction passed in and adds it onto the pending transactions array.</p>
-
-                <div class='pre p1 fill-light mt0'>addTransaction(txn: <a href="#transaction">Transaction</a>)</div>
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Parameters</div>
-                <div class='prose'>
-
-                  <div class='space-bottom0'>
-                    <div>
-                      <span class='code bold'>txn</span> <code class='quiet'>(<a
-                          href="#transaction">Transaction</a>)</code>
-                      The transaction the will be checked and added
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-          <div class='border-bottom' id='blockchainaddwalletaddress'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>addWalletAddress(address)</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function adds a wallet address to the registered addresses.</p>
-
-                <div class='pre p1 fill-light mt0'>addWalletAddress(address: <a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Parameters</div>
-                <div class='prose'>
-
-                  <div class='space-bottom0'>
-                    <div>
-                      <span class='code bold'>address</span> <code class='quiet'>(<a
-                          href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-                      The wallet address that should be added
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-          <div class='border-bottom' id='blockchaingetbalanceforaddress'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>getBalanceForAddress(address)</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function returns the balance of a address.</p>
-
-                <div class='pre p1 fill-light mt0'>getBalanceForAddress(address: <a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>):
-                  <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Parameters</div>
-                <div class='prose'>
-
-                  <div class='space-bottom0'>
-                    <div>
-                      <span class='code bold'>address</span> <code class='quiet'>(<a
-                          href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Returns</div>
-                <code><a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-          <div class='border-bottom' id='blockchaingetblockheight'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>getBlockHeight()</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function returns the block height of the chain</p>
-
-                <div class='pre p1 fill-light mt0'>getBlockHeight(): <a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Returns</div>
-                <code><a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-          <div class='border-bottom' id='blockchaingetblockatheight'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>getBlockAtHeight(height)</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function returns the block at the given height from the blockchain.</p>
-
-                <div class='pre p1 fill-light mt0'>getBlockAtHeight(height: <a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>):
-                  <a href="#block">Block</a></div>
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Parameters</div>
-                <div class='prose'>
-
-                  <div class='space-bottom0'>
-                    <div>
-                      <span class='code bold'>height</span> <code class='quiet'>(<a
-                          href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-                      The block height of the block
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Returns</div>
-                <code><a href="#block">Block</a></code>:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-          <div class='border-bottom' id='blockchaingetpendingtxns'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>getPendingTxns()</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function returns the pending transaction that haven't been put in a block.</p>
-
-                <div class='pre p1 fill-light mt0'>getPendingTxns(): <a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Returns</div>
-                <code><a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-          <div class='border-bottom' id='blockchainischainvalid'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>isChainValid()</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function checks if the blockchain is valid.</p>
-
-                <div class='pre p1 fill-light mt0'>isChainValid(): <a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Returns</div>
-                <code><a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Example</div>
-
-
-                <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">if</span>(blockchain.isChainValid()) {
-                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Everything is fine! The blockchain is valid!'</span>);
-                  } <span class="hljs-keyword">else</span> {
-                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Blockchain is corrupt or damaged!'</span>);
-                  }</pre>
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-        </div>
-
-
-
-
-
-
-      </section>
-
-
-
-
-      <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-        <div class='clearfix'>
-
-          <h3 class='fl m0' id='transaction'>
-            Transaction
-          </h3>
-
-
-        </div>
-
-
-        <p>Declares the transaction class.
-          This class contains the timestamp, the sender, the recipient and the amount that was sent.</p>
-
-        <div class='pre p1 fill-light mt0'>new Transaction(timestamp: <a
-            href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>, sender: <a
-            href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>,
-          recipient: <a
-            href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, amount:
-          <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</div>
-
-
-
-
-
-
-
-
-
-
-
-        <div class='py1 quiet mt1 prose-big'>Parameters</div>
-        <div class='prose'>
-
-          <div class='space-bottom0'>
-            <div>
-              <span class='code bold'>timestamp</span> <code class='quiet'>(<a
-                  href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>)</code>
-
-            </div>
-
-          </div>
-
-          <div class='space-bottom0'>
-            <div>
-              <span class='code bold'>sender</span> <code class='quiet'>(<a
-                  href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
-
-            </div>
-
-          </div>
-
-          <div class='space-bottom0'>
-            <div>
-              <span class='code bold'>recipient</span> <code class='quiet'>(<a
-                  href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
-
-            </div>
-
-          </div>
-
-          <div class='space-bottom0'>
-            <div>
-              <span class='code bold'>amount</span> <code class='quiet'>(<a
-                  href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class='py1 quiet mt1 prose-big'>Instance Members</div>
-        <div class="clearfix">
-
-          <div class='border-bottom' id='transactioncalchash'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>calcHash()</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>The calcHash function calculates the SHA512 hash of this transaction.</p>
-
-                <div class='pre p1 fill-light mt0'>calcHash(): Hash</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Returns</div>
-                <code>Hash</code>:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-          <div class='border-bottom' id='transactionsigntx'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>signTx(key)</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function signs the transaction with the sender's key.</p>
-
-                <div class='pre p1 fill-light mt0'>signTx(key: Key)</div>
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Parameters</div>
-                <div class='prose'>
-
-                  <div class='space-bottom0'>
-                    <div>
-                      <span class='code bold'>key</span> <code class='quiet'>(Key)</code>
-                      This is the sender's key
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-          <div class='border-bottom' id='transactionisvalid'>
-            <div class="clearfix small pointer toggle-sibling">
-              <div class="py1 contain">
-                <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-                <span class='code strong strong truncate'>isValid()</span>
-              </div>
-            </div>
-            <div class="clearfix display-none toggle-target">
-              <section class='p2 mb2 clearfix bg-white minishadow'>
-
-
-
-                <p>This function checks if this transaction was signed
-                  and verifies that the hash of this transaction was signed with the sender's address.</p>
-
-                <div class='pre p1 fill-light mt0'>isValid(): <a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class='py1 quiet mt1 prose-big'>Returns</div>
-                <code><a
-                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </section>
-
-            </div>
-          </div>
-
-        </div>
-
-
-
-
-
-
-      </section>
-
-
-
-    </div>
+      <div id='split-right' class='relative overflow-auto height-viewport-100'>
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='block'>
+      Block
+    </h3>
+    
+    
   </div>
+  
+
+  <p>Declares a new class for the blocks that are inside the blockchain.
+This class contains the timestamp, the transactions and the hash of the previous block.</p>
+
+    <div class='pre p1 fill-light mt0'>new Block(timestamp: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>, txns: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, previousHash: Hash, verbose: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>timestamp</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>txns</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>previousHash</span> <code class='quiet'>(Hash)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>verbose</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+            = <code>false</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='blockcalchash'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>calcHash()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function hashes the block.</p>
+
+    <div class='pre p1 fill-light mt0'>calcHash(): Hash</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Hash</code>:
+        This is the SHA512 hash of the block.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='blockmineblock'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>mineBlock(difficulty)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function hashes the block until the hash begins with n zeroes.</p>
+
+    <div class='pre p1 fill-light mt0'>mineBlock(difficulty: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>difficulty</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    This is the difficulty this block is mined at
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>block.mineBlock(<span class="hljs-number">4</span>);</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='blockchain'>
+      Blockchain
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Declares the blockchain class which stores the blocks and validates them and the transactions contained inside the block.
+This class contains the blockchain itself, the pending transactions and a whole lot more.</p>
+
+    <div class='pre p1 fill-light mt0'>new Blockchain(opts: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>opts</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='blockchaincreategenesisblock'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>createGenesisBlock()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function creates the genesis block and pushes it onto the blockchain.</p>
+
+    <div class='pre p1 fill-light mt0'>createGenesisBlock()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='blockchainminecurrentblock'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>mineCurrentBlock(minerAddress)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function validates all pending Transactions, mines the block.</p>
+
+    <div class='pre p1 fill-light mt0'>mineCurrentBlock(minerAddress: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>minerAddress</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    This is the wallet address where the block reward is payed to.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>blockchain.mineCurrentBlock(<span class="hljs-string">'your public address'</span>);</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='blockchainvalidatetx'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>validateTx(txn)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function will validate and check the transaction to prevent overspending and stealing another users coins.</p>
+
+    <div class='pre p1 fill-light mt0'>validateTx(txn: <a href="#transaction">Transaction</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>txn</span> <code class='quiet'>(<a href="#transaction">Transaction</a>)</code>
+	    The transaction that will be checked
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='blockchainaddtransaction'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>addTransaction(txn)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function checks the transaction passed in and adds it onto the pending transactions array.</p>
+
+    <div class='pre p1 fill-light mt0'>addTransaction(txn: <a href="#transaction">Transaction</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>txn</span> <code class='quiet'>(<a href="#transaction">Transaction</a>)</code>
+	    The transaction the will be checked and added
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='blockchainaddwalletaddress'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>addWalletAddress(address)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function adds a wallet address to the registered addresses.</p>
+
+    <div class='pre p1 fill-light mt0'>addWalletAddress(address: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>address</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The wallet address that should be added
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='blockchaingetlatestblock'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getLatestBlock()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function returns the last block on the blockchain.</p>
+
+    <div class='pre p1 fill-light mt0'>getLatestBlock(): <a href="#block">Block</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#block">Block</a></code>:
+        This is the latest block.
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>blockchain.getLastestBlock();</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='blockchaingetbalanceforaddress'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getBalanceForAddress(address)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function returns the balance of a address.</p>
+
+    <div class='pre p1 fill-light mt0'>getBalanceForAddress(address: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>address</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='blockchaingetblockheight'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getBlockHeight()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function returns the block height of the chain</p>
+
+    <div class='pre p1 fill-light mt0'>getBlockHeight(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='blockchaingetblockatheight'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getBlockAtHeight(height)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function returns the block at the given height from the blockchain.</p>
+
+    <div class='pre p1 fill-light mt0'>getBlockAtHeight(height: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="#block">Block</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>height</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The block height of the block
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#block">Block</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='blockchaingetpendingtxns'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getPendingTxns()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function returns the pending transaction that haven't been put in a block.</p>
+
+    <div class='pre p1 fill-light mt0'>getPendingTxns(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='blockchainischainvalid'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>isChainValid()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function checks if the blockchain is valid.</p>
+
+    <div class='pre p1 fill-light mt0'>isChainValid(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">if</span> (blockchain.isChainValid()) {
+     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Everything is fine! The blockchain is valid!'</span>);
+} <span class="hljs-keyword">else</span> {
+     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Blockchain is corrupt or damaged!'</span>);
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='transaction'>
+      Transaction
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Declares the transaction class.
+This class contains the timestamp, the sender, the recipient and the amount that was sent.</p>
+
+    <div class='pre p1 fill-light mt0'>new Transaction(timestamp: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>, sender: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, recipient: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, amount: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>timestamp</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>sender</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>recipient</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>amount</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='transactioncalchash'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>calcHash()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>The calcHash function calculates the SHA512 hash of this transaction.</p>
+
+    <div class='pre p1 fill-light mt0'>calcHash(): Hash</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Hash</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='transactionsigntx'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>signTx(key)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function signs the transaction with the sender's key.</p>
+
+    <div class='pre p1 fill-light mt0'>signTx(key: Key)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>key</span> <code class='quiet'>(Key)</code>
+	    This is the sender's key
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='transactionisvalid'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>isValid()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function checks if this transaction was signed
+and verifies that the hash of this transaction was signed with the sender's address.</p>
+
+    <div class='pre p1 fill-light mt0'>isValid(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+      </div>
+    </div>
   <script src='assets/anchor.js'></script>
   <script src='assets/split.js'></script>
   <script src='assets/site.js'></script>
 </body>
-
 </html>
