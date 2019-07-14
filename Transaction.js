@@ -9,10 +9,10 @@ const SHA512 = require('crypto-js/sha512'),
  */
 class Transaction {
     /**
-     * @param {Date} timestamp 
-     * @param {String} sender 
-     * @param {String} recipient 
-     * @param {Number} amount 
+     * @param {Date} timestamp
+     * @param {String} sender
+     * @param {String} recipient
+     * @param {Number} amount
      */
     constructor(timestamp, sender, recipient, amount) {
         this.timestamp = timestamp
@@ -52,7 +52,7 @@ class Transaction {
         if (this.sender === "BlockMinting") {
             return true;
         }
-        
+
         if (!this.signature || this.signature.length === 0) {
             xa.custom('Transaction', 'No signature found!', {titleColor: '#E42626', backgroundColor: '#322222'});
             return false;
