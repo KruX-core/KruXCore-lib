@@ -3,7 +3,7 @@ const { Transaction } = require('./Transaction'),
       progressbars = require('cli-progress'),
       xa = require('xa');
 
-String.prototype.trunc = String.prototype.trunc || function(n) {
+String.prototype.trunc = function(n) {
     return (this.length > n) ? this.substr(0, n-1) + '...' : this;
 };
 
@@ -12,43 +12,53 @@ String.prototype.trunc = String.prototype.trunc || function(n) {
  * This class contains the blockchain itself, the pending transactions and a whole lot more.
  */
 class Blockchain {
-    constructor() {
+    /**
+     * Constructor of the Blockchain class
+     * Use the opts argument to set the difficulty and to make it verbose af
+     * @example
+     * const Chain = new Blockchain({ verbose: true, difficulty: 3 }
+     * @param {Object} opts
+     */
+    constructor(opts) {
+        this.options = {
+            verbose: opts.verbose,
+            difficulty: opts.difficulty
+        };
+        this.blockReward = 1;
         this.chain = [];
-        this.difficulty = 1;
         this.pendingTxns = [];
-        this.blockReward = 75;
         this.registeredAddresses = [];
         this.createGenesisBlock();
     }
-    
+
     /**
      * This function creates the genesis block and pushes it onto the blockchain.
      */
     createGenesisBlock() {
         let txn = new Transaction(Date.now(), 'BlockMinting', 'Genesis', 0);
-        let genesisBlock = new Block('1556735351', [ txn ], '0');
+        let genesisBlock = new Block('1556735351', [ txn ], '0', this.options.verbose);
+        if (this.options.verbose) xa.custom('Blockchain', `Created genesis block`, { titleColor: '#45D339', backgroundColor: '#453232' });
         this.chain.push(genesisBlock);
     }
-    
+
     /**
-     * This function creates a airdrop every 25 block, validates all pending Transactions, mines the block.
+     * This function validates all pending Transactions, mines the block.
      * @param {string} minerAddress This is the wallet address where the block reward is payed to.
-     * @param {boolean} [minedByAirdrop=false] Indicates if the block is being mined by a airdrop.
      * @example
      * blockchain.mineCurrentBlock('your public address');
      */
-    mineCurrentBlock(minerAddress, minedByAirdrop = false) {
+    mineCurrentBlock(minerAddress) {
         let validatedTxns = [];
-        
+
         for (const txn of this.pendingTxns) {
             switch (txn.sender) {
                 case 'BlockMinting':
-                    xa.custom('Blockchain', `Transaction validated: ${txn.recipient.trunc(32)} recieved ${txn.amount} coins for mining block ${this.getBlockHeight()}`, { titleColor: '#45D339', backgroundColor: '#453232' });
+                    if (this.options.verbose) xa.custom('Blockchain', `Transaction validated: ${txn.recipient.trunc(32)} recieved ${txn.amount} coins for mining block ${this.getBlockHeight()}`, { titleColor: '#45D339', backgroundColor: '#453232' });
                     validatedTxns.push(txn);
                     break;
                 default:
                     if (this.validateTx(txn)) {
-                        xa.custom('Blockchain', `Transaction validated: ${txn.sender.trunc(32)} sent ${txn.amount} coins to ${txn.recipient.trunc(32)}`, { titleColor: '#45D339', backgroundColor: '#453232' });
+                        if (this.options.verbose) xa.custom('Blockchain', `Transaction validated: ${txn.sender.trunc(32)} sent ${txn.amount} coins to ${txn.recipient.trunc(32)}`, { titleColor: '#45D339', backgroundColor: '#453232' });
                         validatedTxns.push(txn);
                     } else {
                         xa.custom('Blockchain', `Invalid transaction found: ${txn.sender.trunc(32)} tried to send ${txn.amount} coins to ${txn.recipient.trunc(32)}`, { titleColor: '#F53B3B', backgroundColor: '#453232' });
@@ -56,13 +66,13 @@ class Blockchain {
                     break;
             }
         }
-        
-        let block = new Block(Date.now(), validatedTxns, this.getLatestBlock().hash);
-        block.mineBlock(this.difficulty);
+
+        let block = new Block(Date.now(), validatedTxns, this.getLatestBlock().hash, this.options.verbose);
+        block.mineBlock(this.options.difficulty);
         this.chain.push(block);
-                
+
         this.pendingTxns = [
-            new Transaction(Date.now(), 'BlockMinting', minerAddress, this.blockReward)
+            new Transaction(Date.now(), 'BlockMinting', minerAddress, this.options.blockReward)
         ];
     }
 
@@ -78,41 +88,42 @@ class Blockchain {
             if (txn.isValid()) {
 		        return true;
 	        } else {
-		        xa.custom('Transaction', 'Transaction is not valid', { titleColor: '#E42626', backgroundColor: '#322222' });
+		        xa.custom('Blockchain', 'Transaction is not valid', { titleColor: '#E42626', backgroundColor: '#322222' });
 		        return false;
             }
         } else {
-            xa.custom('Transaction', 'Not enough money to confirm transaction', { titleColor: '#E42626', backgroundColor: '#322222' });
+            xa.custom('Blockchain', 'Not enough money to confirm transaction', { titleColor: '#E42626', backgroundColor: '#322222' });
             return false;
         }
     }
-    
+
     /**
      * This function checks the transaction passed in and adds it onto the pending transactions array.
      * @param {Transaction} txn The transaction the will be checked and added
      */
     addTransaction(txn) {
         if (!txn.sender || !txn.recipient) {
-            xa.custom('Transaction', 'Transaction must include the sender\'s and the recipient\'s addresses', { titleColor: '#E42626', backgroundColor: '#322222' });
+            xa.custom('Blockchain', 'Transaction must include the sender\'s and the recipient\'s addresses', { titleColor: '#E42626', backgroundColor: '#322222' });
             return;
 	    }
 
         if (!this.validateTx(txn)) {
-            xa.custom('Transaction', 'Cannot add invalid transaction', { titleColor: '#E42626', backgroundColor: '#322222' });
+            xa.custom('Blockchain', 'Cannot add invalid transaction', { titleColor: '#E42626', backgroundColor: '#322222' });
 	        return;
 	    }
 
-        xa.custom('Transaction', 'Transaction added', { titleColor: '#69E45E', backgroundColor: '#322222' });
+        if (this.options.verbose) xa.custom('Blockchain', 'Transaction added', { titleColor: '#69E45E', backgroundColor: '#322222' });
         this.pendingTxns.push(txn);
     }
-    
+
     /**
      * This function adds a wallet address to the registered addresses.
      * @param {string} address The wallet address that should be added
      */
     addWalletAddress(address) {
         this.registeredAddresses.push(address);
-        xa.custom('Blockchain', `${address.trunc(32)} successfully registered!`, { titleColor: '#69E45E', backgroundColor: '#322222' });
+        this.options.blockReward = this.registeredAddresses.length;
+        if (this.options.verbose) xa.custom('Blockchain', `${address.trunc(48)} successfully registered!`, { titleColor: '#69E45E', backgroundColor: '#322222' });
     }
 
     /**
@@ -132,22 +143,22 @@ class Blockchain {
      */
     getBalanceForAddress(address) {
         let balance = 0;
-        
+
         for ( const block of this.chain) {
             for ( const txn of block.txns) {
                 if (address === txn.sender) {
                     balance -= txn.amount;
                 }
-                
+
                 if (address === txn.recipient) {
                     balance += txn.amount;
                 }
             }
         }
-        
+
         return balance;
     }
-    
+
     /**
      * This function returns the block height of the chain
      * @returns {number}
@@ -155,7 +166,7 @@ class Blockchain {
     getBlockHeight() {
         return this.chain.length - 1;
     }
-    
+
     /**
      * This function returns the block at the given height from the blockchain.
      * @param {number} height The block height of the block
@@ -172,11 +183,11 @@ class Blockchain {
     getPendingTxns() {
         return this.pendingTxns;
     }
-    
+
     /**
      * This function checks if the blockchain is valid.
      * @example
-     * if(blockchain.isChainValid()) {
+     * if (blockchain.isChainValid()) {
      *      console.log('Everything is fine! The blockchain is valid!');
      * } else {
      *      console.log('Blockchain is corrupt or damaged!');
@@ -195,13 +206,13 @@ class Blockchain {
 
             const currBlock = this.getBlockAtHeight(i);
             const prevBlock = this.getBlockAtHeight(i - 1);
-            
+
             // Hash block against itself
             if (currBlock.calcHash() !== currBlock.hash) {
                 progress.stop();
                 return false;
             }
-            
+
             // Check current block's previousHash against previous block's hash
             if (currBlock.previousHash !== prevBlock.hash) {
                 progress.stop();

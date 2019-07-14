@@ -1,7 +1,7 @@
 const SHA512 = require('crypto-js/sha512'),
       xa = require('xa');
 
-String.prototype.trunc = String.prototype.trunc || function(n) {
+String.prototype.trunc = function(n) {
     return (this.length > n) ? this.substr(0, n-1) + '...' : this;
 };
 
@@ -12,18 +12,19 @@ String.prototype.trunc = String.prototype.trunc || function(n) {
 class Block {
     /**
      * @param {Date} timestamp
-     * @param {Array} txns 
-     * @param {Hash} previousHash 
+     * @param {Array} txns
+     * @param {Hash} previousHash
      * @param {Boolean} verbose
      */
-    constructor(timestamp, txns, previousHash) {
+    constructor(timestamp, txns, previousHash, verbose = false) {
         this.timestamp = timestamp;
         this.txns = txns;
         this.previousHash = previousHash;
         this.nonce = 0;
         this.hash = this.calcHash();
+        this.verbose = verbose;
     }
-    
+
     /**
      * This function hashes the block.
      * @returns {Hash} This is the SHA512 hash of the block.
@@ -31,7 +32,7 @@ class Block {
     calcHash() {
         return SHA512(this.previousHash + this.timestamp + JSON.stringify(this.txns) + this.nonce).toString();
     }
-    
+
     /**
      * This function hashes the block until the hash begins with n zeroes.
      * @param {number} difficulty This is the difficulty this block is mined at
@@ -43,10 +44,12 @@ class Block {
         while (this.hash.substring(0, difficulty) !== Array(difficulty + 1).join('0')) {
             this.nonce++;
             count++;
-            this.hash = this.calcHash();
+            let hash = this.calcHash();
+            //if (this.verbose) xa.custom('Block', `Trying block hash ${hash}`, {titleColor: '#17D63D', backgroundColor: '#474747'});
+            this.hash = hash;
         }
-        
-        xa.custom('Block', `Block mined! Hash: ${this.hash.trunc(56)} (${count} iterations)`, {titleColor: '#17D63D', backgroundColor: '#474747'});
+
+        if (this.verbose) xa.custom('Block', `Block mined! Timestamp: ${new Date(this.timestamp).toLocaleString()} | Hash: ${this.hash.trunc(56)} (${count} iterations)`, {titleColor: '#17D63D', backgroundColor: '#474747'});
     }
 }
 
