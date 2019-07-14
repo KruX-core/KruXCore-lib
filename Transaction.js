@@ -49,7 +49,7 @@ class Transaction {
      * @returns {boolean}
      */
     isValid() {
-        if (this.sender === "BlockMinting" || this.sender === "Airdrop") {
+        if (this.sender === "BlockMinting") {
             return true;
         }
         
