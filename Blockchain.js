@@ -22,26 +22,6 @@ class Blockchain {
     }
     
     /**
-     * This function gives every registered address a cut of the block reward.
-     */
-    airdropCoins() {
-        if (this.registeredAddresses === undefined || this.registeredAddresses.length == 0) {
-            xa.custom('Blockchain', 'No wallets registered! No coins will be airdropped.', { titleColor: '#49FA49', backgroundColor: '#453232' });
-            return;
-        }
-
-        let coinsPerWallet = this.blockReward / this.registeredAddresses.length;
-
-        for (const address  of this.registeredAddresses) {
-            this.pendingTxns.push(new Transaction(Date.now(), 'Airdrop', address, coinsPerWallet));
-        }
-        
-        let i = Math.floor(Math.random() * (Math.floor(this.registeredAddresses.length - 1) - Math.ceil(0) + 1)) + Math.ceil(0);
-        xa.custom('Blockchain', `Mining airdrop for ${this.registeredAddresses[ i ].trunc(32)}...`, { titleColor: '#45D339', backgroundColor: '#453232' });
-        this.mineCurrentBlock(this.registeredAddresses[ i ], true);
-    }
-    
-    /**
      * This function creates the genesis block and pushes it onto the blockchain.
      */
     createGenesisBlock() {
@@ -60,18 +40,10 @@ class Blockchain {
     mineCurrentBlock(minerAddress, minedByAirdrop = false) {
         let validatedTxns = [];
         
-        if (((this.getBlockHeight() + 1) % 25 === 0) && minedByAirdrop === false) {
-            this.airdropCoins();
-        }
-        
         for (const txn of this.pendingTxns) {
             switch (txn.sender) {
                 case 'BlockMinting':
                     xa.custom('Blockchain', `Transaction validated: ${txn.recipient.trunc(32)} recieved ${txn.amount} coins for mining block ${this.getBlockHeight()}`, { titleColor: '#45D339', backgroundColor: '#453232' });
-                    validatedTxns.push(txn);
-                    break;
-                case 'Airdrop':
-                    xa.custom('Blockchain', `Transaction validated: Airdrop (${txn.amount} coins) for ${txn.recipient.trunc(32)}`, { titleColor: '#45D339', backgroundColor: '#453232' });
                     validatedTxns.push(txn);
                     break;
                 default:
