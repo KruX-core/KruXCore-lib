@@ -14,6 +14,7 @@ class Block {
      * @param {Date} timestamp
      * @param {Array} txns 
      * @param {Hash} previousHash 
+     * @param {Boolean} verbose
      */
     constructor(timestamp, txns, previousHash) {
         this.timestamp = timestamp;
