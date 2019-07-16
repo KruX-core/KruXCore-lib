@@ -1,3 +1,3 @@
-module.exports.Blockchain = require('./Blockchain').Blockchain;
-module.exports.Transaction = require('./Transaction').Transaction;
-module.exports.Block = require('./Block').Block;
+module.exports.Blockchain = require('./lib/Blockchain').Blockchain;
+module.exports.Transaction = require('./lib/Transaction').Transaction;
+module.exports.Block = require('./lib/Block').Block;
