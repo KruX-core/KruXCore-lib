@@ -22,6 +22,7 @@ let Coin = new Blockchain({ verbose: verbose, difficulty: difficulty });
 Coin.addWalletAddress(walletAddr1);
 Coin.addWalletAddress(walletAddr2);
 Coin.addWalletAddress(walletAddr3);
+Coin.addWalletAddress(walletAddr2);
 
 const startTime = new Date();
 
