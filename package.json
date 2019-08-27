@@ -20,7 +20,7 @@
     "xa": "^2.2.2"
   },
   "devDependencies": {
-    "eslint": "6.2.1"
+    "eslint": "6.2.2"
   },
   "directories": {
     "doc": "docs",
