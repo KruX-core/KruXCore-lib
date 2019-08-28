@@ -1,4 +1,6 @@
 # KruXCore-lib
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FKruX-core%2FKruXCore-lib.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FKruX-core%2FKruXCore-lib?ref=badge_shield)
+
 
 This library programmed entirely in JavaScript provides a Blockchain.
 
@@ -224,3 +226,7 @@ This function checks if this transaction was signed
 and verifies that the hash of this transaction was signed with the sender's address.
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FKruX-core%2FKruXCore-lib.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FKruX-core%2FKruXCore-lib?ref=badge_large)
