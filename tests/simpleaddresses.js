@@ -17,7 +17,7 @@ const blocksToMine = 15;
 // Instanciate a new Blockchain
 const Coin = new Blockchain({
     genesisTimestamp: 1556735351,
-    verbose: true,
+    verbose: verbose,
     difficulty: difficulty,
     txFee: 0.1,
     premineAddress: 'Genesis',

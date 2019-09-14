@@ -27,7 +27,7 @@ for (let i = 0; i < numOfTestRuns; i++) {
         premineAmount: 1000
     });
 
-    console.log(`Genesis block: ${JSON.stringify(Coin.getLatestBlock(), null, 4)}`)
+    console.log(`Genesis block: ${JSON.stringify(Coin.getLatestBlock(), null, 4)}`);
 
     // Generate n keys with a public and private keypair, save them to the addresses array
     // and register them on the blockchain
@@ -61,7 +61,7 @@ for (let i = 0; i < numOfTestRuns; i++) {
                 let address1 = addresses[num2].pubKey;
                 let address2 = addresses[num3].pubKey;
 
-                console.log(`Balance of ${address1}: ${Coin.getBalanceForAddress(address1)}`)
+                console.log(`Balance of ${address1}: ${Coin.getBalanceForAddress(address1)}`);
                 // Check that we have enough coins on that address to send the transaction
                 if (Coin.getBalanceForAddress(address1) > numOfCoinsSentPerTx) {
                     // Create the transaction itself
@@ -125,8 +125,6 @@ const result = (()=> {
         _tmp.memoryAfterValidating += result.memoryAfterValidating;
     });
 
-    console.log(_tmp)
-
     _tmp = {
         timeSpentMining: _tmp.timeSpentMining / numOfTestRuns,
         timeSpentMiningPerBlock: _tmp.timeSpentMiningPerBlock / numOfTestRuns,
@@ -138,8 +136,8 @@ const result = (()=> {
         memoryAfterValidating: _tmp.memoryAfterValidating / numOfTestRuns
     };
 
-    return _tmp
-})()
+    return _tmp;
+})();
 
 console.log('\nCopy paste me\n------------------------------------');
 console.log(`\n- difficulty: ${difficulty}`);
