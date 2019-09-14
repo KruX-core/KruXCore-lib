@@ -66,7 +66,7 @@ This class contains the timestamp, the transactions and the hash of the previous
 
 This function hashes the block.
 
-Returns **Hash** This is the SHA512 hash of the block.
+Returns **Hash** This is the SHA256 hash of the block.
 
 #### mineBlock
 
@@ -208,7 +208,7 @@ This class contains the timestamp, the sender, the recipient and the amount that
 
 #### calcHash
 
-The calcHash function calculates the SHA512 hash of this transaction.
+The calcHash function calculates the SHA256 hash of this transaction.
 
 Returns **Hash** 
 
