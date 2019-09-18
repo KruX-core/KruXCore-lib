@@ -2,7 +2,7 @@
 
 const { Blockchain, Transaction } = require('..');
 const EC = require('elliptic').ec;
-const ec = new EC('secp256k1');
+const ec = new EC('ed25519');
 
 // Transaction settings
 const numOfAdresses = 5;

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 const EC = require('elliptic').ec;
-const ec = new EC('secp256k1');
+const ec = new EC('ed25519');
 
 const key = ec.genKeyPair();
 const pubKey = key.getPublic('hex');

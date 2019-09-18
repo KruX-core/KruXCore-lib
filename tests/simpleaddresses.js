@@ -2,10 +2,10 @@
 
 const { Blockchain, Transaction } = require('..');
 const EC = require('elliptic').ec;
-const ec = new EC('secp256k1');
+const ec = new EC('ed25519');
 
-const key1 = ec.keyFromPrivate('3236f563f41037771bc70d0cdd13b8f823c371cea08dd55ab6f8ace221d33718');
-const key2 = ec.keyFromPrivate('be3c0c3143be5594b47a09ba12c805aaaecc1ee003143376dbb7017d231316ac');
+const key1 = ec.keyFromPrivate('0b6f9d218d9afe11bcc60c10918b14b9402c45a282aae76e94547fa2f5909c64');
+const key2 = ec.keyFromPrivate('0d7e75bb7d059c995b9469d7f8e3157dea215c152bdcd9b4e8ccfbe643cd25d2');
 
 const walletAddr1 = key1.getPublic('hex');
 const walletAddr2 = key2.getPublic('hex');
