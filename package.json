@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.0.0",
-    "cli-progress": "^3.7.0",
+    "cli-progress": "^3.8.2",
     "crypto-js": "^4.0.0",
     "elliptic": "^6.5.2",
     "xa": "^2.4.0"
