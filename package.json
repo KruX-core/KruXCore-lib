@@ -13,7 +13,7 @@
   "author": "TheDevMinerTV",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^4.0.0",
+    "chalk": "^4.1.0",
     "cli-progress": "^3.8.2",
     "crypto-js": "^4.0.0",
     "elliptic": "^6.5.2",
