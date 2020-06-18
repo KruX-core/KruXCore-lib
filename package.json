@@ -16,7 +16,7 @@
     "chalk": "^4.1.0",
     "cli-progress": "^3.8.2",
     "crypto-js": "^4.0.0",
-    "elliptic": "^6.5.2",
+    "elliptic": "^6.5.3",
     "xa": "^2.4.0"
   },
   "devDependencies": {
